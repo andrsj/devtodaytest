@@ -25,8 +25,9 @@ python manage.py runserver
  - PyCharmIDE 
  - Black [pip install black]
  - Flake8 [pip install flake8]
- (warning on the number of characters in one line is omitted
- in black we can use <88 symbols, on flack8 <79)
+ ---
+ Warning on the number of characters in one line is omitted
+ > in black we can use <88 symbols, on flack8 <79
 
 ### Postman Collection
  - [JSON format](https://www.getpostman.com/collections/46ec6676250af3d0c926)
