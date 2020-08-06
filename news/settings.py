@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
-from .dbconf import *
+from . import dbconf
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -80,11 +80,11 @@ WSGI_APPLICATION = "news.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": POSTGRES_DB,
-        "USER": POSTGRES_USER,
-        "PASSWORD": POSTGRES_PASSWORD,
-        "HOST": POSTGRES_HOST,
-        "PORT": POSTGRES_PORT,
+        "NAME": dbconf.POSTGRES_DB,
+        "USER": dbconf.POSTGRES_USER,
+        "PASSWORD": dbconf.POSTGRES_PASSWORD,
+        "HOST": dbconf.POSTGRES_HOST,
+        "PORT": dbconf.POSTGRES_PORT,
     }
 }
 
@@ -94,11 +94,11 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator", 
+    }, 
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", }, 
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", }, 
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", }, 
 ]
 
 
