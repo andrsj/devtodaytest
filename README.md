@@ -2,10 +2,10 @@
 
 ## Overview
  News site API:
- - CRUD posts
- - CRUD comments for posts
- - Endpoint to upvote the post
- - X Background tasks unrealised
+ - [x] CRUD posts
+ - [x] CRUD comments for posts
+ - [x] Endpoint to upvote the post
+ - [ ] Background tasks unrealised
 
 ## How to run server
 
