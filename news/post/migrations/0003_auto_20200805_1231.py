@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('post', '0002_auto_20200805_1157'),
+        ("post", "0002_auto_20200805_1157"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='comment',
-            name='creation_date',
+            model_name="comment",
+            name="creation_date",
             field=models.DateTimeField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='count_upvotes',
+            model_name="post",
+            name="count_upvotes",
             field=models.IntegerField(default=0, editable=False),
         ),
     ]

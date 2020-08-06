@@ -11,28 +11,20 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
 
-    @action(detail=True, methods=['patch'])
+    @action(detail=True, methods=["patch"])
     def increment_upvotes(self, request, pk=None):
         post = self.get_object()
         post.count_upvotes += 1
         data = request.data
-        data['post'] = post.id
-        serializer = PostSerializer(
-            post,
-            data=data,
-            partial=True
-        )
+        data["post"] = post.id
+        serializer = PostSerializer(post, data=data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
-            return Response(
-                serializer.data,
-                status=status.HTTP_206_PARTIAL_CONTENT
-            )
+            return Response(serializer.data, status=status.HTTP_206_PARTIAL_CONTENT)
 
         return Response(
-            {'error': serializer.errors},
-            status=status.HTTP_400_BAD_REQUEST
+            {"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST
         )
 
     def destroy(self, request, *args, **kwargs):
@@ -40,11 +32,9 @@ class PostViewSet(viewsets.ModelViewSet):
             instance = self.get_object()
             self.perform_destroy(instance)
         except Http404:
-            return Response(
-                {'error': 'Not found'},
-                status=status.HTTP_404_NOT_FOUND
-            )
+            return Response({"error": "Not found"}, status=status.HTTP_404_NOT_FOUND)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
@@ -55,8 +45,5 @@ class CommentViewSet(viewsets.ModelViewSet):
             instance = self.get_object()
             self.perform_destroy(instance)
         except Http404:
-            return Response(
-                {'error': 'Not found'},
-                status=status.HTTP_404_NOT_FOUND
-            )
+            return Response({"error": "Not found"}, status=status.HTTP_404_NOT_FOUND)
         return Response(status=status.HTTP_204_NO_CONTENT)

@@ -6,17 +6,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('post', '0001_initial'),
+        ("post", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='post',
-            options={'ordering': ['creation_date', 'title']},
+            name="post", options={"ordering": ["creation_date", "title"]},
         ),
         migrations.AlterField(
-            model_name='post',
-            name='creation_date',
+            model_name="post",
+            name="creation_date",
             field=models.DateTimeField(auto_now_add=True),
         ),
     ]
